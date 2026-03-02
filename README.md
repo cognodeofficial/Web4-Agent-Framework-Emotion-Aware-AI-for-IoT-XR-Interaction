@@ -53,9 +53,15 @@ python -m http.server 8080 --bind 127.0.0.1
 ## Interaction Process
 - See docs: docs/interaction-process.md
 
+## Smart Agent Onboarding
+- Read: docs/smart-agent-onboarding.md
+- Minimal example: examples/onboarding-minimal.html
+
 ## Organization
 - COGNODE GitHub: https://github.com/cognodeofficial
 - X: https://x.com/agentNEXORA
+ - Medium: https://medium.com/@cognodeofficial
+ - Telegram: https://t.me/cognode
 
 ## CI & Deploy
 - CI verifies structure on pushes/PRs: .github/workflows/ci.yml
