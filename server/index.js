@@ -7,7 +7,15 @@ app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || "http://localhost:8000";
-app.post("/api/emotion/analyze", async (req, res) => {
+const API_TOKEN = process.env.AGENT_API_TOKEN || "";
+function requireToken(req, res, next) {
+  if (!API_TOKEN) return next();
+  const h = req.headers["authorization"] || "";
+  const v = h.startsWith("Bearer ") ? h.slice(7) : (h.startsWith("token ") ? h.slice(6) : "");
+  if (v && v === API_TOKEN) return next();
+  return res.status(401).json({ error: "unauthorized" });
+}
+app.post("/api/emotion/analyze", requireToken, async (req, res) => {
   try {
     const r = await fetch(AI_SERVICE_URL + "/analyze", {
       method: "POST",
@@ -20,7 +28,7 @@ app.post("/api/emotion/analyze", async (req, res) => {
     res.status(200).json({ emotion: "mixed", confidence: 0.5, state: "unknown" });
   }
 });
-app.post("/api/iot/device", async (req, res) => {
+app.post("/api/iot/device", requireToken, async (req, res) => {
   const b = req.body || {};
   if (!b.device_id || !b.action) return res.status(400).json({ error: "invalid" });
   const ok = await mqtt.publishDevice(b.device_id, b.action);

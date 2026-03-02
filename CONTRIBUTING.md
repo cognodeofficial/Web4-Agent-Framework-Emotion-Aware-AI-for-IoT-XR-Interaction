@@ -14,3 +14,9 @@
 ## Development
 - Local preview: `python -m http.server 8080 --bind 127.0.0.1`
 - Publish: `scripts/publish.ps1`
+
+## Who Should Contribute
+- AI engineers
+- IoT developers
+- XR developers
+- Human‑computer interaction researchers

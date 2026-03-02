@@ -2,8 +2,8 @@
 
 Process‑first repository: focuses on how users interact with the web utilities (inputs, events, quick actions, voice/gesture), not on site content.
 
-![CI](https://github.com/cognodeofficial/interaction-demo-full/actions/workflows/ci.yml/badge.svg)
-![Pages](https://github.com/cognodeofficial/interaction-demo-full/actions/workflows/deploy.yml/badge.svg)
+![CI](https://github.com/cognodeofficial/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction/actions/workflows/ci.yml/badge.svg)
+![Pages](https://github.com/cognodeofficial/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction/actions/workflows/deploy.yml/badge.svg)
 ![Medium](https://img.shields.io/badge/Medium-@cognodeofficial-000?logo=medium)
 ![Telegram](https://img.shields.io/badge/Telegram-@cognode-26A5E4?logo=telegram)
 ![GitHub](https://img.shields.io/badge/GitHub-@cognodeofficial-181717?logo=github)
@@ -71,7 +71,7 @@ python -m http.server 8080 --bind 127.0.0.1
 - cd ai-service
 - python main.py
 
-## Jalankan Backend
+## Run Backend
 - npm run dev
 
 ## Run Production Mode
@@ -98,23 +98,49 @@ python -m http.server 8080 --bind 127.0.0.1
 - Read: docs/smart-agent-onboarding.md
 - Minimal example: examples/onboarding-minimal.html
 
+## Deployment Options (AI Service)
+- Railway: simple container deploy for FastAPI service
+- Fly.io: global edge placement for low‑latency inference
+- VPS: full control on your own server
+- Edge server: deploy near devices for minimal round‑trip
+
+## Security Model
+- Token‑based authentication (Authorization: Bearer <token>)
+- Encrypted IoT channel (TLS mqtts://)
+- Role‑based Agent Access (RBAC)
+- Optional zero‑trust network layer
+
+## Use Case Examples
+- Smart City Control Agent
+- Industrial IoT Supervisor
+- Healthcare Emotional Companion
+- Defense Simulation Interface
+- Immersive Education AI Guide
+
+## Roadmap
+- Real‑time facial emotion detection
+- Haptic feedback integration
+- Distributed agent federation
+- Edge AI optimization
+- Quantum‑ready adaptive layer (Research)
+
 ## Organization
 - COGNODE GitHub: https://github.com/cognodeofficial
 - X: https://x.com/agentNEXORA
- - Medium: https://medium.com/@cognodeofficial
- - Telegram: https://t.me/cognode
+- Medium: https://medium.com/@cognodeofficial
+- Telegram: https://t.me/cognode
 
 ## CI & Deploy
 - CI verifies structure on pushes/PRs: .github/workflows/ci.yml
 - Lint/typecheck via Super‑Linter: .github/workflows/lint.yml
 - GitHub Pages deploy on main pushes: .github/workflows/deploy.yml  
-  Result URL: https://cognodeofficial.github.io/interaction-demo-full/
+  Result URL: https://cognodeofficial.github.io/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction/
 
 ## Publish Script
 Automate init/commit/remote/push:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\publish.ps1 `
-  -RepoUrl "https://github.com/cognodeofficial/interaction-demo-full" `
+  -RepoUrl "https://github.com/cognodeofficial/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction" `
   -Branch "main" `
   -CommitMessage "Initial publish"
 ```
