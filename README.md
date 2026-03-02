@@ -1,154 +1,78 @@
-# COGNODE - Web 4.0 AI Agent Recruitment Platform
+# COGNODE Interaction Demo
 
-![COGNODE Banner](https://img.shields.io/badge/COGNODE-Web%204.0-00f3ff?style=for-the-badge&logo=robot)
+Interactive Web demo showing how users can engage with built‑in utilities: messaging, quick actions, voice, gestures, and recruit modal — styled as a CMD‑like terminal for a lightweight experience.
 
-Platform Web 4.0 untuk merekrut agen AI cerdas dengan pemahaman emosi, IoT integration, dan interaksi natural melalui suara, gesture, dan AR/VR.
+![CI](https://github.com/cognodeofficial/interaction-demo/actions/workflows/ci.yml/badge.svg)
+![Pages](https://github.com/cognodeofficial/interaction-demo/actions/workflows/deploy.yml/badge.svg)
+![Medium](https://img.shields.io/badge/Medium-@cognodeofficial-000?logo=medium)
+![Telegram](https://img.shields.io/badge/Telegram-@cognode-26A5E4?logo=telegram)
 
-## 🚀 Fitur Utama
+## Features
+- CMD‑style chat UI, monospaced green on black
+- Quick actions: Recruit Agent, Connect IoT, Emotion, AR Mode
+- Voice/gesture triggers exposed via app utilities
+- Lightweight mode to reduce animations on low‑memory devices
 
-### 🤖 AI Agents Marketplace
-- **Nova Assistant** - Agen produktivitas dengan pemahaman konteks mendalam
-- **Aura Creative** - Partner kreatif dengan emotion-aware design
-- **Sync IoT Master** - Kontroler IoT sentral dengan respons real-time
-- **Empath Companion** - Agen dukungan emosional dengan deteksi sentimen
-- **Code Weaver** - Developer AI untuk code yang human-centric
-- **Guardian Security** - Sistem keamanan proaktif
-
-### 🌐 Web 4.0 Capabilities
-- ✅ **Pemahaman Konteks & Emosi** - Analisis emosi real-time
-- ✅ **IoT Neural Network** - Terhubung dengan perangkat IoT
-- ✅ **Real-time & Proaktif** - Prediksi behavioral dengan latensi <50ms
-- ✅ **Interaksi Natural** - Voice-first interface & gesture recognition
-- ✅ **AR/VR Integration** - WebXR support & spatial computing
-- ✅ **Semantic Web** - RDF & OWL support dengan smart contracts
-
-### 🎨 UI/UX Features
-- Glassmorphism design dengan neon accents
-- Animasi halus dan immersive
-- Responsive untuk desktop & mobile
-- Dark mode optimized
-- Accessibility friendly
-
-## 📁 Struktur Project
-
+## Repository Structure
 ```
-cognode-web4/
-├── index.html          # Halaman utama
-├── css/
-│   └── styles.css      # Stylesheet utama
-├── js/
-│   └── main.js         # JavaScript module
-├── assets/
-│   ├── images/         # Folder untuk gambar
-│   └── icons/          # Folder untuk ikon
-└── README.md           # Dokumentasi
+.
+├── index.html
+├── css/styles.css
+├── js/main.js
+├── examples/
+│   ├── interaction-demo.html
+│   ├── interaction-guide.html
+│   └── embed-widget.html
+└── .github/workflows/
+    ├── ci.yml
+    └── deploy.yml
 ```
 
-## 🚀 Cara Menggunakan
-
-### 1. Buka Langsung di Browser
+## Getting Started
+### Local Preview
 ```bash
-# Extract zip file, lalu buka index.html di browser
-open index.html
+python -m http.server 8080 --bind 127.0.0.1
+# open http://127.0.0.1:8080/
 ```
 
-### 2. Deploy ke Web Server
-```bash
-# Copy folder ke web server
-scp -r cognode-web4/ user@server:/var/www/html/
+### Interaction Examples
+- Demo: examples/interaction-demo.html
+- Guide: examples/interaction-guide.html
+- Embed: examples/embed-widget.html
+
+## Built‑in Utilities
+- sendMessageProxy() — send a message from input
+- quickReplyProxy(text) — trigger predefined actions
+- app.toggleVoiceInput() — toggle voice input
+- app.showGesturePad() — open gesture pad
+- app.openRecruitModal() — open recruit modal
+
+## CI & Deploy
+- CI verifies structure on pushes/PRs: .github/workflows/ci.yml
+- Lint/typecheck via Super‑Linter: .github/workflows/lint.yml
+- GitHub Pages deploy on main pushes: .github/workflows/deploy.yml  
+  Result URL: https://cognodeofficial.github.io/interaction-demo/
+
+## Publish Script
+Automate init/commit/remote/push:
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\publish.ps1 `
+  -RepoUrl "https://github.com/cognodeofficial/interaction-demo" `
+  -Branch "main" `
+  -CommitMessage "Initial publish"
 ```
 
-### 3. Live Server (Development)
-```bash
-# Menggunakan VS Code Live Server
-# Atau Python simple server
-python -m http.server 8000
-```
+## Branch Protection
+- Enable in GitHub: Settings → Branches → Add rule for “main”
+- Require pull request before merging
+- Require status checks to pass (CI + lint + deploy preview)
+- Disallow force pushes and deletions
 
-## 🎯 Interaksi
+## Contributing
+1. Fork
+2. Create a feature branch: git checkout -b feature/new-feature
+3. Commit changes: git commit -m "Add new feature"
+4. Push and open a Pull Request
 
-### Voice Mode
-- Klik tombol mikrofon untuk memulai rekaman suara
-- Simulasi voice recognition dengan respons otomatis
-
-### Gesture Control
-- Gerakkan mouse/kursor di area Gesture Control
-- Deteksi gesture: Swipe, Circle, Pinch, Wave, Tap
-
-### AR/VR Mode
-- Klik "Masuk Mode AR" untuk simulasi WebXR
-- VR overlay dengan instruksi headset
-
-### Chat dengan AI
-- Ketik pesan atau gunakan quick replies
-- Respon kontekstual berdasarkan input
-
-## 🛠️ Teknologi
-
-- **HTML5** - Semantic markup
-- **Tailwind CSS** - Utility-first CSS framework
-- **Font Awesome** - Icon library
-- **Google Fonts** - Orbitron & Inter fonts
-- **Vanilla JavaScript** - ES6+ module pattern
-
-## 📱 Responsive Breakpoints
-
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
-
-## 🎨 Color Palette
-
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Neon Blue | `#00f3ff` | Primary accent |
-| Neon Purple | `#bc13fe` | Secondary accent |
-| Neon Green | `#0aff0a` | Success/IoT |
-| Deep Space | `#050508` | Background |
-
-## 🔧 Customization
-
-### Menambah Agen Baru
-Edit file `js/main.js` dan tambahkan ke array `AGENTS_DATA`:
-
-```javascript
-{
-    id: 7,
-    name: "Nama Agen",
-    category: "productivity",
-    avatar: "🎯",
-    description: "Deskripsi agen...",
-    skills: { skill1: 95, skill2: 90 },
-    status: "online",
-    emotion: "focused",
-    price: "$29/mo",
-    features: ["Feature 1", "Feature 2"]
-}
-```
-
-### Mengubah Tema Warna
-Edit CSS variables di `css/styles.css`:
-
-```css
-:root {
-    --neon-blue: #00f3ff;
-    --neon-purple: #bc13fe;
-    --neon-green: #0aff0a;
-}
-```
-
-## 📄 License
-
-© 2026 COGNODE. Web 4.0 Intelligence Platform. All rights reserved.
-
-## 🤝 Kontribusi
-
-1. Fork repository
-2. Buat branch fitur (`git checkout -b feature/fitur-baru`)
-3. Commit perubahan (`git commit -m 'Add fitur baru'`)
-4. Push ke branch (`git push origin feature/fitur-baru`)
-5. Buat Pull Request
-
----
-
-**Dibuat dengan ❤️ untuk masa depan Web 4.0**
+## License
+MIT License — see LICENSE
