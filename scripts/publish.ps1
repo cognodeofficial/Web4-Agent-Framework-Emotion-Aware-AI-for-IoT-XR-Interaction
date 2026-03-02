@@ -40,6 +40,21 @@ if ($env:GH_TOKEN -and $gh) {
 } else {
   if ($env:GH_TOKEN) {
     $token = $env:GH_TOKEN
+    if ($RepoUrl -match '^https://github\.com/([^/]+)/([^/]+)(\.git)?$') {
+      $owner = $matches[1]
+      $repoName = $matches[2]
+      try {
+        $headers = @{ Authorization = "token $token"; "User-Agent" = "TraePublish"; Accept = "application/vnd.github+json" }
+        $body = @{ name = $repoName; private = $false } | ConvertTo-Json
+        if ($owner -eq $env:GITHUB_USER) {
+          Invoke-RestMethod -Method Post -Uri "https://api.github.com/user/repos" -Headers $headers -Body $body | Out-Null
+        } else {
+          Invoke-RestMethod -Method Post -Uri "https://api.github.com/orgs/$owner/repos" -Headers $headers -Body $body | Out-Null
+        }
+      } catch {
+        Write-Host "Repository may already exist or creation failed. Continuing with push."
+      }
+    }
     $repoUrlToken = ($RepoUrl -replace '^https://','https://'+$token+'@')
     try {
       Git "remote set-url origin $repoUrlToken"
