@@ -24,11 +24,11 @@ COGNODE focuses on how users acquire a Web 4.0 smart agent and connect it to rea
 - Persist agent state (active, focus, emotion) in your store
 - Emit UI status badges on connection success/failure
 
-## Minimal Wiring
-1) Include `js/main.js`
-2) Bind Enter and Send to `sendMessageProxy()`
-3) Bind quick buttons to `quickReplyProxy(text)`
-4) Implement bridges for Webhook/WebSocket/MQTT as needed
+## Minimal Flow (CLI/API)
+1) Start AI service and backend
+2) Verify health: `curl http://localhost:3000/health`
+3) Interact via API (emotion/iot)
+4) Configure XR mode when required
 
 ## Media & Organization
 - GitHub: https://github.com/cognodeofficial

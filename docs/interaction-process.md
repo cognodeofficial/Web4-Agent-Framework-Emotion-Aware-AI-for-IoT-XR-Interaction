@@ -1,35 +1,32 @@
-# Web Interaction Process
+# Interaction Process (API‑first)
 
-This repository focuses on how users interact with the web utilities, not on site content. Use these building blocks to wire interactions in any UI.
+Use terminal/API commands to interact with the agent and connected systems. No UI wiring required.
 
-## Core Flow
-- Input → sendMessageProxy() → app handles message
-- Quick action → quickReplyProxy(text) → app triggers contextual behavior
-- Keyboard Enter → dispatch sendMessageProxy()
-- Optional: app.toggleVoiceInput(), app.showGesturePad(), app.openRecruitModal()
+## Emotion Analysis
+```bash
+curl -X POST http://localhost:3000/api/emotion/analyze \
+  -H "Authorization: Bearer $AGENT_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"input":"Hello, I feel overwhelmed","mode":"text"}'
+```
 
-## Minimal Wiring
-1) Include `js/main.js`
-2) Bind Enter key and button to `sendMessageProxy()`
-3) Bind quick buttons to `quickReplyProxy(text)`
+## IoT Device Control
+```bash
+curl -X POST http://localhost:3000/api/iot/device \
+  -H "Authorization: Bearer $AGENT_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"device_id":"lamp-01","action":"turn_on"}'
+```
 
-## Event Patterns
-- Keydown: Enter | keyCode 13 | which 13 → preventDefault → sendMessageProxy()
-- Click: Button → sendMessageProxy() or quickReplyProxy(text)
-- Lifecycle: window.load → add initial log message
+## XR Mode
+```bash
+# Bash
+XR_MODE=true npm run xr
 
-## Recommended UX
-- CMD‑style prompt: `COGNODE AI>` then user text
-- Keep animations minimal (`perf-mode` class) for performance
-- Provide 2–4 quick actions for common tasks
+# Windows PowerShell
+$env:XR_MODE="true"; npm run xr
+```
 
-## Security
-- Never log tokens/secrets
-- Keep GH_TOKEN only for the session when publishing
-
-## Troubleshooting
-- If Enter key doesn’t fire, switch to `keydown` and check `key`, `keyCode`, `which`
-- If inline handlers fail, expose global `window.app` and use proxy functions
-
-## References
-- Examples: `examples/interaction-guide.html`, `examples/embed-widget.html`, `examples/process-minimal.html`
+## Security Notes
+- Use bearer tokens (AGENT_API_TOKEN) for API access
+- Prefer TLS (mqtts://) for IoT channels
