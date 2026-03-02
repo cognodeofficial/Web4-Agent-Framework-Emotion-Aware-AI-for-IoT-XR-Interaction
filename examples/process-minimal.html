@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Interaction Process</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-black text-white perf-mode">
+  <div class="min-h-screen p-6">
+    <div class="glass-panel rounded-2xl max-w-xl mx-auto border border-neon-green/30">
+      <div class="p-4 border-b border-white/10">
+        <h1 class="font-orbitron text-xl">Minimal Interaction</h1>
+        <p class="mt-1 text-xs text-gray-400">Focus on process: input, Enter, quick actions.</p>
+      </div>
+      <div class="p-4 space-y-4">
+        <div class="flex gap-2">
+          <input id="m-input" type="text" placeholder="Type message" class="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2">
+          <button class="px-3 py-2 rounded-lg bg-neon-green/20 hover:bg-neon-green/30 transition-all" onclick="sendMessageProxy()">Send</button>
+        </div>
+        <div class="flex gap-2">
+          <button class="px-3 py-2 rounded-lg glass-panel hover:bg-white/10" onclick="quickReplyProxy('Recruit Agent')">Recruit</button>
+          <button class="px-3 py-2 rounded-lg glass-panel hover:bg-white/10" onclick="quickReplyProxy('Connect IoT')">IoT</button>
+        </div>
+        <div id="m-log" class="space-y-2"></div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/main.js"></script>
+  <script>
+    (() => {
+      const i = document.getElementById('m-input');
+      const l = document.getElementById('m-log');
+      if (i) i.addEventListener('keydown', e => { if (e.key === 'Enter' || e.keyCode === 13 || e.which === 13) { e.preventDefault(); sendMessageProxy(); } });
+      const add = t => { const d = document.createElement('div'); d.className = 'chat-bubble agent cmd'; d.innerHTML = '<div class="cmd-line"><span class="cmd-prompt">COGNODE AI></span><span class="cmd-text">'+t+'</span></div>'; l.appendChild(d); };
+      window.addEventListener('load', () => { add('Minimal ready'); });
+    })();
+  </script>
+</body>
+</html>

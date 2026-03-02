@@ -38,5 +38,16 @@ if ($env:GH_TOKEN -and $gh) {
     Git "push -u origin $Branch"
   }
 } else {
-  Git "push -u origin $Branch"
+  if ($env:GH_TOKEN) {
+    $token = $env:GH_TOKEN
+    $repoUrlToken = ($RepoUrl -replace '^https://','https://'+$token+'@')
+    try {
+      Git "remote set-url origin $repoUrlToken"
+      Git "push -u origin $Branch"
+    } finally {
+      Git "remote set-url origin $RepoUrl"
+    }
+  } else {
+    Git "push -u origin $Branch"
+  }
 }

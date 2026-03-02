@@ -1,17 +1,17 @@
 # COGNODE Interaction Demo
 
-Interactive Web demo showing how users can engage with built‑in utilities: messaging, quick actions, voice, gestures, and recruit modal — styled as a CMD‑like terminal for a lightweight experience.
+Process‑first repository: focuses on how users interact with the web utilities (inputs, events, quick actions, voice/gesture), not on site content.
 
-![CI](https://github.com/cognodeofficial/interaction-demo/actions/workflows/ci.yml/badge.svg)
-![Pages](https://github.com/cognodeofficial/interaction-demo/actions/workflows/deploy.yml/badge.svg)
+![CI](https://github.com/cognodeofficial/interaction-demo-full/actions/workflows/ci.yml/badge.svg)
+![Pages](https://github.com/cognodeofficial/interaction-demo-full/actions/workflows/deploy.yml/badge.svg)
 ![Medium](https://img.shields.io/badge/Medium-@cognodeofficial-000?logo=medium)
 ![Telegram](https://img.shields.io/badge/Telegram-@cognode-26A5E4?logo=telegram)
 
 ## Features
-- CMD‑style chat UI, monospaced green on black
-- Quick actions: Recruit Agent, Connect IoT, Emotion, AR Mode
-- Voice/gesture triggers exposed via app utilities
-- Lightweight mode to reduce animations on low‑memory devices
+- Interaction flow: input → send → handle → feedback
+- Quick actions for contextual behavior
+- Voice/gesture hooks via app utilities
+- Lightweight mode to reduce animations
 
 ## Repository Structure
 ```
@@ -36,6 +36,7 @@ python -m http.server 8080 --bind 127.0.0.1
 ```
 
 ### Interaction Examples
+- Minimal: examples/process-minimal.html
 - Demo: examples/interaction-demo.html
 - Guide: examples/interaction-guide.html
 - Embed: examples/embed-widget.html
@@ -47,17 +48,20 @@ python -m http.server 8080 --bind 127.0.0.1
 - app.showGesturePad() — open gesture pad
 - app.openRecruitModal() — open recruit modal
 
+## Interaction Process
+- See docs: docs/interaction-process.md
+
 ## CI & Deploy
 - CI verifies structure on pushes/PRs: .github/workflows/ci.yml
 - Lint/typecheck via Super‑Linter: .github/workflows/lint.yml
 - GitHub Pages deploy on main pushes: .github/workflows/deploy.yml  
-  Result URL: https://cognodeofficial.github.io/interaction-demo/
+  Result URL: https://cognodeofficial.github.io/interaction-demo-full/
 
 ## Publish Script
 Automate init/commit/remote/push:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\publish.ps1 `
-  -RepoUrl "https://github.com/cognodeofficial/interaction-demo" `
+  -RepoUrl "https://github.com/cognodeofficial/interaction-demo-full" `
   -Branch "main" `
   -CommitMessage "Initial publish"
 ```
