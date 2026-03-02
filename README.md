@@ -7,48 +7,8 @@ Process‑first repository: focuses on how users interact with the web utilities
 ![Medium](https://img.shields.io/badge/Medium-@cognodeofficial-000?logo=medium)
 ![Telegram](https://img.shields.io/badge/Telegram-@cognode-26A5E4?logo=telegram)
 ![GitHub](https://img.shields.io/badge/GitHub-@cognodeofficial-181717?logo=github)
-![X](https://img.shields.io/badge/X-@agentNEXORA-000?logo=x)
+![X](https://img.shields.io/badge/X-@cognodeofficial-000?logo=x)
 
-## Features
-- Interaction flow: input → send → handle → feedback
-- Quick actions for contextual behavior
-- Voice/gesture hooks via app utilities
-- Lightweight mode to reduce animations
-
-## Repository Structure
-```
-.
-├── index.html
-├── css/styles.css
-├── js/main.js
-├── examples/
-│   ├── interaction-demo.html
-│   ├── interaction-guide.html
-│   └── embed-widget.html
-└── .github/workflows/
-    ├── ci.yml
-    └── deploy.yml
-```
-
-## Getting Started
-### Local Preview
-```bash
-python -m http.server 8080 --bind 127.0.0.1
-# open http://127.0.0.1:8080/
-```
-
-### Interaction Examples
-- Minimal: examples/process-minimal.html
-- Demo: examples/interaction-demo.html
-- Guide: examples/interaction-guide.html
-- Embed: examples/embed-widget.html
-
-## Built‑in Utilities
-- sendMessageProxy() — send a message from input
-- quickReplyProxy(text) — trigger predefined actions
-- app.toggleVoiceInput() — toggle voice input
-- app.showGesturePad() — open gesture pad
-- app.openRecruitModal() — open recruit modal
 
 ## Architecture Overview
 - User (Voice / Gesture / XR) → Multimodal Input Processor → Emotion Recognition Engine → Cognitive Decision Core (AI Agent) → IoT / XR / API Execution Layer
@@ -126,7 +86,7 @@ python -m http.server 8080 --bind 127.0.0.1
 
 ## Organization
 - COGNODE GitHub: https://github.com/cognodeofficial
-- X: https://x.com/agentNEXORA
+- X: https://x.com/cognodeofficial
 - Medium: https://medium.com/@cognodeofficial
 - Telegram: https://t.me/cognode
 

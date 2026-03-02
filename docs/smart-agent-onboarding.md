@@ -1,37 +1,37 @@
 # Smart Agent Onboarding (Web 4.0)
-COGNODE berfokus pada cara seseorang mendapatkan smart agent Web 4.0 dan menghubungkannya dengan kehidupan nyata. Gunakan panduan ini untuk onboarding cepat tanpa mengubah UI web Anda.
+COGNODE focuses on how users acquire a Web 4.0 smart agent and connect it to real‑world systems. Use this quick onboarding guide without changing your existing UI.
 
-## Tujuan
-- Rekrut/aktifkan smart agent.
-- Tangani input pengguna (chat/voice/gesture) melalui proxy aman.
-- Hubungkan ke perangkat/layanan nyata (IoT, webhook, MQTT, WebSocket).
+## Goals
+- Recruit/activate a smart agent
+- Handle user input (chat/voice/gesture) via secure proxies
+- Connect to real services/devices (IoT, webhook, MQTT, WebSocket)
 
-## Langkah 1 — Rekrut/aktifkan agent
-- Buat tombol “Recruit Agent” yang memanggil `quickReplyProxy('Recruit a productivity agent')`.
-- Di `app` implement handler untuk memunculkan modal atau mengaktifkan agent default.
+## Step 1 — Recruit/Activate Agent
+- Add a “Recruit Agent” button that calls `quickReplyProxy('Recruit a productivity agent')`
+- In `app`, implement the handler to open a modal or activate a default agent
 
-## Langkah 2 — Input interaksi
-- Chat: bind Enter pada input ke `sendMessageProxy()` dan tombol kirim.
-- Voice: panggil `app.toggleVoiceInput()` untuk on/off.
-- Gesture: panggil `app.showGesturePad()` untuk UI gestur.
+## Step 2 — Interaction Inputs
+- Chat: bind Enter to `sendMessageProxy()` and wire the Send button
+- Voice: toggle with `app.toggleVoiceInput()`
+- Gesture: open pad with `app.showGesturePad()`
 
-## Langkah 3 — Koneksi kehidupan nyata
-- Webhook: kirim `fetch('/api/hook', {method:'POST', body: JSON.stringify(payload)})`.
-- WebSocket: gunakan `const ws = new WebSocket(url)` lalu kirim event saat agent memproses perintah.
-- MQTT: gunakan klien MQTT over WebSocket (mis. `mqtt.js`) bila diperlukan, publish/subscribe topik perangkat.
+## Step 3 — Real‑World Connections
+- Webhook: `fetch('/api/hook', { method:'POST', body: JSON.stringify(payload) })`
+- WebSocket: `const ws = new WebSocket(url)` and emit events on agent actions
+- MQTT: use a WebSocket MQTT client (e.g., `mqtt.js`) to publish/subscribe device topics
 
-## Langkah 4 — Automasi & status
-- Simpan status agent (aktif, fokus, emosi) di store aplikasi.
-- Emit event UI (badge/status) saat koneksi berhasil/gagal.
+## Step 4 — Automation & Status
+- Persist agent state (active, focus, emotion) in your store
+- Emit UI status badges on connection success/failure
 
 ## Minimal Wiring
-1) Sertakan `js/main.js`.
-2) Ikat Enter dan tombol kirim ke `sendMessageProxy()`.
-3) Ikat tombol cepat ke `quickReplyProxy(text)`.
-4) Implementasikan bridge ke layanan nyata sesuai kebutuhan (Webhook/WebSocket/MQTT).
+1) Include `js/main.js`
+2) Bind Enter and Send to `sendMessageProxy()`
+3) Bind quick buttons to `quickReplyProxy(text)`
+4) Implement bridges for Webhook/WebSocket/MQTT as needed
 
-## Media & Organisasi
+## Media & Organization
 - GitHub: https://github.com/cognodeofficial
-- X: https://x.com/agentNEXORA
+- X: https://x.com/cognodeofficial
 - Medium: https://medium.com/@cognodeofficial
 - Telegram: https://t.me/cognode
