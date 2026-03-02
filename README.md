@@ -1,6 +1,6 @@
-# COGNODE Interaction Demo
+# Web4 Agent Framework — Emotion‑Aware AI for IoT/XR
 
-Process‑first repository: focuses on how users interact with the web utilities (inputs, events, quick actions, voice/gesture), not on site content.
+API‑first repository: focuses on terminal/API interactions and real‑world connections (IoT/XR), not website files.
 
 ![CI](https://github.com/cognodeofficial/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction/actions/workflows/ci.yml/badge.svg)
 ![Pages](https://github.com/cognodeofficial/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction/actions/workflows/deploy.yml/badge.svg)
