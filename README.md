@@ -14,49 +14,82 @@ Process‑first repository: focuses on how users interact with the web utilities
 - User (Voice / Gesture / XR) → Multimodal Input Processor → Emotion Recognition Engine → Cognitive Decision Core (AI Agent) → IoT / XR / API Execution Layer
 
 ## Installation Guide
-- git clone https://github.com/cognodeofficial/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction.git
-- cd Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction
-- npm install
-- cd ai-service
-- pip install -r requirements.txt
+```bash
+git clone https://github.com/cognodeofficial/Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction.git
+cd Web4-Agent-Framework-Emotion-Aware-AI-for-IoT-XR-Interaction
+npm install
+cd ai-service
+pip install -r requirements.txt
+```
 
 ## Setup Environment
-- PORT=3000
-- AI_SERVICE_URL=http://localhost:8000
-- MQTT_BROKER=mqtt://localhost:1883
-- XR_MODE=true
-- EMOTION_MODEL=affective-v1
+```bash
+# .env
+PORT=3000
+AI_SERVICE_URL=http://localhost:8000
+MQTT_BROKER=mqtt://localhost:1883
+XR_MODE=false
+EMOTION_MODEL=affective-v1
+AGENT_API_TOKEN=change-me
+```
 
 ## Run Development Mode
-- cd ai-service
-- python main.py
+```bash
+cd ai-service
+python main.py
+```
 
 ## Run Backend
-- npm run dev
+```bash
+npm run dev
+```
 
 ## Run Production Mode
-- npm run build
-- npm start
+```bash
+npm run build
+npm start
+```
 
 ## Emotion Engine API
-- POST /api/emotion/analyze
-- Body:
-  - {"input":"I feel overwhelmed but excited","mode":"text"}
-- Response:
-  - {"emotion":"mixed","confidence":0.87,"state":"high_cognitive_load"}
+```bash
+curl -X POST http://localhost:3000/api/emotion/analyze \
+  -H "Authorization: Bearer $AGENT_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"input":"I feel overwhelmed but excited","mode":"text"}'
+```
 
 ## IoT Control
-- POST /api/iot/device
-- Body:
-  - {"device_id":"lamp-01","action":"turn_on"}
+```bash
+curl -X POST http://localhost:3000/api/iot/device \
+  -H "Authorization: Bearer $AGENT_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"device_id":"lamp-01","action":"turn_on"}'
+```
 
 ## XR Interaction Mode
-- XR_MODE=true
-- npm run xr
+```bash
+# Bash
+XR_MODE=true npm run xr
+
+# Windows PowerShell
+$env:XR_MODE="true"; npm run xr
+```
 
 ## Smart Agent Onboarding
-- Read: docs/smart-agent-onboarding.md
-- Minimal example: examples/onboarding-minimal.html
+```bash
+# Start services
+cd ai-service && python main.py &
+cd .. && npm run dev
+
+# Verify health
+curl http://localhost:3000/health
+
+# Recruit (simulated) and interact via API
+curl -X POST http://localhost:3000/api/emotion/analyze \
+  -H "Authorization: Bearer $AGENT_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"input":"Recruit a productivity agent","mode":"text"}'
+```
 
 ## Deployment Options (AI Service)
 - Railway: simple container deploy for FastAPI service
